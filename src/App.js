@@ -27,9 +27,9 @@ export default function App() {
     setLoading(true);
     setResult("");
     setShowModal(false);
-
+    
     try {
-      const res = await fetch(`http://127.0.0.1:8000/items/10?${query}`);
+      const res = await fetch(`https://fastapi-insurance.onrender.com/items/10?${query}`);
 
       if (!res.ok) {
         const errBody = await res.json().catch(() => null);
