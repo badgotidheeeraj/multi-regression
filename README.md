@@ -68,3 +68,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Backend (FastAPI) — development helper
+
+This repository also contains a tiny demo FastAPI app under `backend/main.py` that exposes a GET `/items` endpoint which the React frontend calls for example input->prediction requests.
+
+Quick start (from project root):
+
+Install dependencies (recommended inside a virtualenv):
+
+```bash
+python -m pip install -r backend/requirements.txt
+```
+
+Start the server:
+
+```bash
+uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Then open the React app (npm start) and use the UI to call `http://127.0.0.1:8000/items?age=25&height=165&weight=98` — it should return a JSON object with a `prediction` field.
+
